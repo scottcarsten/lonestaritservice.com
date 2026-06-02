@@ -1,7 +1,575 @@
 <!DOCTYPE html>
-<html>
-<head><title>Lone Star IT Service</title></head>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scott Carsten | Fractional CISO & IT Security Consultant | Texas</title>
+<meta name="description" content="Scott Carsten is a Texas-based fractional CISO with 27+ years of enterprise IT experience. Affordable cybersecurity leadership for small and mid-size businesses — no full-time hire required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1A3A5C;
+    --navy2:  #0F2540;
+    --teal:   #0D7377;
+    --gold:   #C87941;
+    --light:  #F4F6F9;
+    --white:  #FFFFFF;
+    --text:   #1A1A2E;
+    --muted:  #5A6476;
+    --border: #DEE2E6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,58,92,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.15; color: var(--white); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 1rem; }
+  h3 { font-size: 1.15rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  p { margin-bottom: 1rem; color: var(--muted); }
+
+  .btn-primary {
+    display: inline-block; padding: 0.9rem 2.2rem;
+    background: var(--gold); color: var(--white);
+    font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em;
+    text-decoration: none; border-radius: 3px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: #a8612f; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block; padding: 0.9rem 2rem;
+    background: transparent; color: rgba(255,255,255,0.85);
+    font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 3px; margin-left: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--white); color: var(--white); }
+
+  /* HERO */
+  #hero {
+    background: var(--navy2);
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(135deg, rgba(13,115,119,0.15) 0%, rgba(200,121,65,0.08) 100%);
+  }
+  .hero-content { position: relative; max-width: 680px; }
+  .hero-tag {
+    display: inline-block; padding: 0.35rem 1rem;
+    background: rgba(200,121,65,0.2); border: 1px solid rgba(200,121,65,0.4);
+    color: var(--gold); font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.75);
+    margin: 1.5rem 0 2.2rem;
+    line-height: 1.65;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2.5rem; }
+
+  /* TRUST BAR */
+  #trust {
+    background: var(--navy);
+    padding: 2rem;
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid rgba(255,255,255,0.1);
+  }
+  .trust-grid {
+    display: flex; flex-wrap: wrap; gap: 1rem 2.5rem;
+    justify-content: center; align-items: center;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.8); font-size: 0.88rem; font-weight: 600;
+  }
+  .trust-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  /* PROBLEM */
+  #problem { background: var(--navy2); }
+  #problem h2 { color: var(--white); }
+  #problem .intro { color: rgba(255,255,255,0.65); font-size: 1.1rem; margin-bottom: 2.5rem; }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 2rem;
+  }
+  .pain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem; border-radius: 4px;
+  }
+  .pain-card p { color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem; }
+  .hook { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin-top: 2.5rem; font-style: italic; }
+
+  /* SERVICES */
+  #services { background: var(--white); }
+  .services-intro { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 3rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 2rem;
+  }
+  .service-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--navy); padding: 2rem;
+    border-radius: 4px; transition: box-shadow 0.2s, border-top-color 0.2s;
+  }
+  .service-card:hover { box-shadow: 0 6px 24px rgba(26,58,92,0.1); border-top-color: var(--gold); }
+  .service-num { font-size: 2rem; font-weight: 700; color: rgba(26,58,92,0.1); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.92rem; margin: 0; }
+
+  /* ABOUT */
+  #about { background: var(--light); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--muted); }
+  .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .cred-item {
+    display: flex; align-items: flex-start; gap: 0.5rem;
+    font-size: 0.88rem; color: var(--muted); padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cred-icon { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+  /* WHO */
+  #who { background: var(--white); }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .who-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 1.75rem; border-radius: 4px;
+  }
+  .who-card h3 { color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; margin-bottom: 0.75rem; }
+  .who-card p { font-size: 0.9rem; margin: 0; }
+
+  /* PROCESS */
+  #process { background: var(--navy2); }
+  #process h2 { color: var(--white); }
+  #process .intro { color: rgba(255,255,255,0.65); margin-bottom: 3rem; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .step { text-align: center; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--gold); color: var(--white);
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .step h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; }
+  .step p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0; }
+
+  /* PRICING */
+  #pricing { background: var(--light); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .price-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 2rem; border-radius: 4px; text-align: center;
+  }
+  .price-card.featured { border: 2px solid var(--navy); position: relative; }
+  .price-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--navy); color: var(--white);
+    font-size: 0.75rem; font-weight: 600; padding: 0.25rem 1rem;
+    border-radius: 20px; white-space: nowrap;
+  }
+  .price-name { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--navy); }
+  .price-period { font-size: 0.85rem; color: var(--muted); }
+  .price-desc { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
+  .price-note { font-size: 0.88rem; color: var(--muted); max-width: 580px; margin: 2.5rem auto 0; text-align: center; }
+
+  /* FAQ */
+  #faq { background: var(--white); }
+  .faq-list { max-width: 780px; margin-top: 2rem; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+  .faq-q { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+  .faq-a { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+  /* CTA */
+  #cta { background: var(--navy); text-align: center; padding: 6rem 2rem; }
+  #cta h2 { color: var(--white); margin-bottom: 1rem; }
+  #cta p { color: rgba(255,255,255,0.7); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+  .cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-top: 1.5rem !important; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy2);
+    border-top: 2px solid var(--gold);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-nap { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 0.5rem; }
+  .footer-legal { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .cred-grid { grid-template-columns: 1fr; }
+    .btn-secondary { margin-left: 0; }
+    section { padding: 3.5rem 1.25rem; }
+    #hero { padding-top: 7rem; padding-bottom: 4rem; }
+  }
+
+  /* DESIGN NOTE BOX */
+  .design-note {
+    background: #FFF8E8;
+    border: 1px solid #f0c060;
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem;
+    color: #7a5c1a;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+  }
+</style>
+</head>
 <body>
-<h1>Lone Star IT Service - Coming Soon</h1>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-brand" href="#">Lone Star IT Service</a>
+        <ul class="nav-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#who">Who I Help</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#cta" style="color:var(--gold);">Let's Talk</a></li>
+        </ul>
+    </nav>
+
+    <!-- DESIGN NOTE
+    <div style="padding: 80px 2rem 0; background: var(--navy2);">
+        <div class="container">
+            <div class="design-note">
+                <strong>Saturday Reference:</strong> This is a live HTML preview of your website layout and copy. Open it in any browser. The nav, colors, typography, section flow, and all copy are production-ready. Share it with your WordPress developer or use it as your exact design brief. The Word document has all copy with WordPress/SEO instructions. -->
+            </div>
+        </div>
+    </div> -->
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">Fractional CISO &mdash; Texas</div>
+                <h1>Cybersecurity Leadership Without the Full-Time Price Tag</h1>
+                <p class="hero-sub">I help Texas businesses protect their data, pass compliance audits, and sleep better at night &mdash; without hiring a $200,000-a-year CISO.</p>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; margin-bottom:0;">Hi, I'm Scott Carsten. With over 27 years in enterprise IT and cybersecurity, I've protected hospitals, financial institutions, and growing businesses across Texas. I bring that same senior-level expertise to your organization &mdash; on a schedule and budget that makes sense for a business your size.</p>
+                <div class="hero-ctas">
+                    <a href="#cta" class="btn-primary">Schedule Your Free Discovery Call</a>
+                    <a href="#services" class="btn-secondary">See What I Do</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div id="trust">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item"><div class="trust-dot"></div>CompTIA Security+ Certified</div>
+                <div class="trust-item"><div class="trust-dot"></div>CISSP In Progress</div>
+                <div class="trust-item"><div class="trust-dot"></div>27+ Years Enterprise IT</div>
+                <div class="trust-item"><div class="trust-dot"></div>Healthcare IT — Methodist Dallas Medical Center</div>
+                <div class="trust-item"><div class="trust-dot"></div>HIPAA | NIST CSF | CIS Controls</div>
+                <div class="trust-item"><div class="trust-dot"></div>Security Steering Committee Member</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-label">The Problem</div>
+            <h2>Sound Familiar?</h2>
+            <p class="intro">Most small and mid-size businesses know cybersecurity matters &mdash; but can't justify a full-time security executive. So the gaps pile up, the compliance deadlines loom, and one day something goes wrong.</p>
+            <div class="pain-grid">
+                <div class="pain-card"><p>You've had an IT person handle security on the side &mdash; and honestly, you're not sure what they've actually set up or checked.</p></div>
+                <div class="pain-card"><p>A breach, ransomware attack, or audit requirement landed on your desk and now you need answers fast.</p></div>
+                <div class="pain-card"><p>Your industry requires HIPAA, SOC 2, or similar compliance, but you don't have anyone dedicated to owning it.</p></div>
+                <div class="pain-card"><p>You're growing, hiring, or adding new software &mdash; and your security hasn't kept pace.</p></div>
+                <div class="pain-card"><p>You've been told you need a risk assessment or a security policy but have no idea where to start.</p></div>
+                <div class="pain-card"><p>Your cyber insurance renewal is coming up and they're asking questions you can't answer confidently.</p></div>
+            </div>
+            <p class="hook">That's exactly the gap I fill.</p>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="section-label">Services</div>
+            <h2>What I Do For Your Business</h2>
+            <p class="services-intro">I don't sell software or hardware. I sell expertise and time &mdash; focused entirely on protecting your business and keeping you on the right side of compliance.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-num">01</div>
+                    <h3>Security Assessment</h3>
+                    <p>A thorough review of your network, email, accounts, devices, and policies &mdash; with a clear, prioritized roadmap of what to fix and when. No jargon. Just what you actually need to know.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">02</div>
+                    <h3>HIPAA Compliance</h3>
+                    <p>Annual risk assessments, policy development, Business Associate Agreements, and audit-ready documentation for medical practices, dental offices, and healthcare-adjacent businesses.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">03</div>
+                    <h3>Microsoft 365 Security</h3>
+                    <p>Most businesses run M365 with factory settings &mdash; which is like leaving the front door unlocked. I audit your entire M365 environment and configure it the right way.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">04</div>
+                    <h3>Fractional CISO Retainer</h3>
+                    <p>Monthly security monitoring, quarterly reviews, policy maintenance, incident response guidance, and direct access to a senior security professional &mdash; for a fraction of a full-time hire.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">05</div>
+                    <h3>Identity & Access Security</h3>
+                    <p>Old accounts. Over-privileged users. Shared passwords. These are the vulnerabilities attackers love. I audit your entire user environment and clean it up so only the right people have access.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-num">06</div>
+                    <h3>Security Policies & Documentation</h3>
+                    <p>Compliance frameworks and cyber insurance carriers want written policies. I build them for you &mdash; in plain English that your employees will actually understand and follow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-label">About</div>
+                    <h2>Why Work With Me</h2>
+                    <p>I'm not a vendor trying to sell you a product. I'm not a big consulting firm that sends a junior analyst and charges you senior rates. I'm an independent consultant who shows up, does the work, and explains it in plain English.</p>
+                    <p>I've spent 27 years in the trenches of enterprise IT &mdash; managing 5,000-user hospital environments at Methodist Dallas Medical Center, directing IT for multi-state healthcare organizations, leading million-dollar security projects, and serving on security steering committees.</p>
+                    <p>When I work with you, you get all of that experience applied directly to your situation. An honest assessment of where you are, a realistic plan to get where you need to be, and a partner who's accountable to you directly.</p>
+                    <p>I'm based in Granbury, Texas and work with businesses throughout the DFW metroplex and across the state. Most engagements can be handled remotely.</p>
+                    <a href="#cta" class="btn-primary" style="margin-top:1rem; display:inline-block;">Schedule a Discovery Call</a>
+                </div>
+                <div>
+                    <div class="section-label">Credentials</div>
+                    <div class="cred-grid">
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> CompTIA Security+ CE</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> CompTIA Network+</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> CompTIA A+</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> ITIL v2011 Foundation</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> LPI Linux Essentials</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> Microsoft Certified Professional</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> CIW Web Specialist</div>
+                        <div class="cred-item"><span class="cred-icon">&#10003;</span> BS, Information Technology — WGU</div>
+                        <div class="cred-item" style="border-bottom:2px solid var(--gold);"><span class="cred-icon" style="color:var(--gold);">&#9654;</span> <strong>CISSP &mdash; In Progress</strong></div>
+                    </div>
+                    <div style="margin-top:2rem; padding:1.5rem; background:rgba(26,58,92,0.06); border-left:3px solid var(--gold); border-radius:3px;">
+                        <p style="font-size:0.9rem; margin:0; color:var(--muted);"><strong style="color:var(--navy);">Security Steering Committee</strong><br>Higher Education Servicing Corporation, Arlington TX &mdash; Current</p>
+                    </div>
+                    <div style="margin-top:1rem; padding:1.5rem; background:rgba(26,58,92,0.06); border-left:3px solid var(--navy); border-radius:3px;">
+                        <p style="font-size:0.9rem; margin:0; color:var(--muted);"><strong style="color:var(--navy);">Healthcare IT Experience</strong><br>Methodist Dallas Medical Center &mdash; IT Manager, 5,000+ users</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHO -->
+    <section id="who">
+        <div class="container">
+            <div class="section-label">Who I Help</div>
+            <h2>Who I Work With</h2>
+            <p style="max-width:640px; color:var(--muted); margin-bottom:2rem;">I work best with organizations that are serious about getting their security right but don't have &mdash; or don't need &mdash; a full-time security team.</p>
+            <div class="who-grid">
+                <div class="who-card">
+                    <h3>Medical &amp; Dental Practices</h3>
+                    <p>HIPAA compliance isn't optional, and the fines for a breach aren't either. I've worked in healthcare IT since the early 2000s &mdash; I understand clinical environments and what HHS auditors look for.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Financial Services &amp; Accounting</h3>
+                    <p>Client financial data is among the most targeted information in existence. Whether you're facing SOX requirements, cyber insurance renewal, or want to know you're protected &mdash; I've been there.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Legal Practices</h3>
+                    <p>Attorney-client privilege extends to the digital realm. Law firms are high-value targets and rarely have dedicated security staff. I protect client data without disrupting how your firm operates.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Small &amp; Mid-Size Businesses</h3>
+                    <p>You're big enough to be a target and small enough that a breach could be devastating. I work with businesses across manufacturing, professional services, and logistics throughout Texas.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Municipal &amp; Education</h3>
+                    <p>I've worked with city governments firsthand. Public entities face unique compliance pressures and limited budgets &mdash; I understand how to deliver real security value within those constraints.</p>
+                </div>
+                <div class="who-card">
+                    <h3>Growing Companies</h3>
+                    <p>Security gaps compound as you add headcount, software, and vendors. I help fast-growing companies build the security foundation they need before a problem forces the issue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+        <div class="container">
+            <div class="section-label" style="color:var(--gold);">How It Works</div>
+            <h2>How We Get Started</h2>
+            <p class="intro">No long sales process. No confusing proposal filled with jargon. Here's what happens:</p>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>We Talk — Free, No Pressure</h3>
+                    <p>30-minute call. You tell me what's going on. I tell you honestly whether I can help and what that looks like.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>I Assess Your Situation</h3>
+                    <p>A thorough review of your systems, settings, policies, and compliance posture. Most assessments complete in 1-2 weeks.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>You Get a Clear Report</h3>
+                    <p>Plain-English findings report and executive summary. We walk through it together. You understand exactly where you stand.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h3>We Fix It &mdash; Your Way</h3>
+                    <p>One-time project or ongoing monthly retainer. You choose what fits your situation and your budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="pricing">
+        <div class="container">
+            <div class="section-label">Pricing</div>
+            <h2>Straightforward Pricing</h2>
+            <p style="max-width:580px; color:var(--muted); margin-bottom:2.5rem;">Every engagement is scoped for your specific situation &mdash; but here's what most clients invest.</p>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <div class="price-name">Security Assessment</div>
+                    <div class="price-amount">From $1,500</div>
+                    <div class="price-desc">Complete review of your security posture — M365, Active Directory, email, network, and policies. Delivered with a prioritized findings report and executive summary in 1-2 weeks.</div>
+                </div>
+                <div class="price-card featured">
+                    <div class="price-badge">Most Popular</div>
+                    <div class="price-name">HIPAA Risk Assessment</div>
+                    <div class="price-amount">From $2,500</div>
+                    <div class="price-desc">Fulfills your required annual HIPAA Security Rule risk analysis. Includes documentation suitable for HHS audit. Required every year for medical and dental practices.</div>
+                </div>
+                <div class="price-card">
+                    <div class="price-name">Monthly Retainer</div>
+                    <div class="price-amount">From $1,500</div>
+                    <div class="price-period">/month</div>
+                    <div class="price-desc">Ongoing fractional CISO — monthly monitoring, access reviews, policy maintenance, incident response guidance. Cancel anytime with 30 days notice.</div>
+                </div>
+            </div>
+            <p class="price-note">Not sure what you need? That's what the free discovery call is for. Most clients come in not knowing exactly what they're looking for &mdash; and leave with a clear picture of their situation and options.</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2>Questions People Usually Ask</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q">Do I really need a CISO if I'm a small business?</div>
+                    <p class="faq-a">Probably not a full-time one. But you do need someone accountable for security &mdash; someone who knows what to check and what to do when something goes wrong. That's exactly what a fractional CISO provides. Senior-level security leadership for a fraction of the cost of a full-time hire.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">My business is small. Are we really a target?</div>
+                    <p class="faq-a">Yes &mdash; more so than you might think. The majority of ransomware attacks target businesses with fewer than 250 employees. Small businesses typically have weaker defenses. You don't have to be a household name to be worth attacking.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">We already use a managed IT service (MSP). Do we still need you?</div>
+                    <p class="faq-a">Quite possibly. Most MSPs are excellent at keeping systems running. But security compliance, risk assessments, HIPAA documentation, and strategic security planning are a different skillset &mdash; and most MSPs don't specialize there. I often work alongside existing MSPs and they welcome the support.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How does the HIPAA risk assessment work?</div>
+                    <p class="faq-a">I conduct a structured review of how your practice creates, receives, stores, and transmits patient information &mdash; your technical controls, policies, staff training, physical safeguards, and vendor relationships. You receive a formal risk assessment document you can show an auditor. Typically delivered in 1-2 weeks.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What if we have a security incident or breach?</div>
+                    <p class="faq-a">Call me. Retainer clients get priority response &mdash; I know your environment. For non-retainer clients I offer emergency incident response services. The first step is stopping the bleeding and preserving evidence &mdash; that's exactly where I start.</p>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Do you work outside of Texas?</div>
+                    <p class="faq-a">Most of my work is remote, so geography is rarely a barrier. I'm based in Granbury and most active in the DFW area for on-site work &mdash; but I work with clients across the country for remote assessments and retainer services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta">
+        <div class="container">
+            <div class="section-label" style="color:var(--gold); text-align:center;">Let's Talk</div>
+            <h2>Let's Talk About Your Security</h2>
+            <p>The 30-minute discovery call is free. There's no sales pitch, no obligation. Just an honest conversation about where you are and whether I can help.</p>
+            <p style="color:rgba(255,255,255,0.55); max-width:500px; margin:0 auto 2rem; font-size:0.95rem;">Most people leave that call with more clarity about their security situation than they've had in years &mdash; whether they hire me or not.</p>
+            <a href="mailto:scott@lonestaritservice.com" class="btn-primary" style="font-size:1.05rem; padding:1rem 2.8rem;">Schedule Your Free Discovery Call</a>
+            <p class="cta-sub">Based in Granbury, TX &mdash; Serving the DFW metroplex and businesses across Texas &mdash; Remote engagements available nationwide</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-nap"><strong>Scott Carsten</strong> &mdash; Fractional CISO &amp; IT Security Consultant &mdash; Granbury, TX 76049</p>
+            <p class="footer-nap">[469-248-5463] &mdash; [scott @ lonestaritservice.com] <style="color:rgba(255,255,255,0.6);"</a></p>
+            <p class="footer-legal">&copy; 2026 Lone Star IT Service. All rights reserved. Serving businesses throughout the DFW metroplex and across Texas.</p>
+        </div>
+    </footer>
+
 </body>
 </html>
