@@ -90,10 +90,12 @@
   function windowRow(label, w) {
     var row = el("div", "row"), lbl = el("div", "lbl"), bar = el("div", "bar"), fill = el("div", "fill");
     var has = w && typeof w.used_pct === "number";
+    var passed = has && w.resets_at && Date.parse(w.resets_at) <= Date.now();
+    if (passed) w = { used_pct: 0, resets_at: null, reset_passed: true };
     lbl.appendChild(el("span", null, label));
     lbl.appendChild(el("span", "pct", has ? Math.round(w.used_pct) + "%" : "n/a"));
     bar.appendChild(fill); row.appendChild(lbl); row.appendChild(bar);
-    var note = !has ? "No reading yet" : w.resets_at ? "Resets in " + dur(Date.parse(w.resets_at) - Date.now()) : "Window has reset since the last reading";
+    var note = !has ? "No reading yet" : w.reset_passed ? "Reset, waiting for next reading" : w.resets_at ? "Resets in " + dur(Date.parse(w.resets_at) - Date.now()) : "Window has reset since the last reading";
     row.appendChild(el("div", "muted", note));
     setBar(fill, has ? w.used_pct : 0);
     return row;
