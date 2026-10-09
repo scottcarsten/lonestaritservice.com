@@ -41,7 +41,7 @@
 <main>
   <h1>Crew usage</h1>
   <div class="sub" id="updated">Loading</div>
-  <div class="warn" id="stale">Data is more than 90 minutes old. The updater may be stopped.</div>
+  <div class="warn" id="stale">No update in over a day. The updater may be stopped.</div>
 
   <div class="card hero"><h2>Grok Bot (Cursor)</h2>
     <div class="row">
@@ -102,8 +102,9 @@
 
   function render(d) {
     var age = Date.now() - Date.parse(d.updated);
-    $("updated").textContent = "Updated " + dur(age) + " ago";
-    $("stale").style.display = age > 90 * 60000 ? "block" : "none";
+    // The updater publishes only when numbers move, plus a heartbeat about every 20 hours
+    $("updated").textContent = "Last change published " + dur(age) + " ago";
+    $("stale").style.display = age > 26 * 3600000 ? "block" : "none";
     [["claude", d.claude], ["codex", d.codex]].forEach(function (p) {
       var box = $(p[0]); box.textContent = "";
       box.appendChild(windowRow("5 hour window", p[1].five_hour));
@@ -112,9 +113,10 @@
     });
     var g = d.gemini, gb = $("gemini"); gb.textContent = "";
     var row = el("div", "row"), lbl = el("div", "lbl"), bar = el("div", "bar"), fill = el("div", "fill");
-    lbl.appendChild(el("span", null, "About $" + g.est_spend_usd.toFixed(2) + " of $" + g.credit_usd.toFixed(0)));
-    lbl.appendChild(el("span", "pct", g.est_pct.toFixed(1) + "%"));
-    bar.appendChild(fill); row.appendChild(lbl); row.appendChild(bar); gb.appendChild(row); setBar(fill, g.est_pct);
+    var num = function (v) { return typeof v === "number" && isFinite(v); };
+    lbl.appendChild(el("span", null, num(g.est_spend_usd) ? "About $" + g.est_spend_usd.toFixed(2) + " of $" + (num(g.credit_usd) ? g.credit_usd.toFixed(0) : "20") : "Spend n/a"));
+    lbl.appendChild(el("span", "pct", num(g.est_pct) ? g.est_pct.toFixed(1) + "%" : "n/a"));
+    bar.appendChild(fill); row.appendChild(lbl); row.appendChild(bar); gb.appendChild(row); setBar(fill, num(g.est_pct) ? g.est_pct : 0);
     var t = $("calls"); t.textContent = "";
     var hr = el("tr"); ["Engine", "Today", "7 days"].forEach(function (h, i) { hr.appendChild(el("th", i ? "n" : null, h)); }); t.appendChild(hr);
     [["Claude", "claude"], ["Codex", "codex"], ["Gemini", "gemini"], ["All failed", "failed"]].forEach(function (r) {
