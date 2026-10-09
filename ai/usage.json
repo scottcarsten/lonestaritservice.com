@@ -1,0 +1,51 @@
+{
+ "schema": 1,
+ "updated": "2026-10-09T02:30:16Z",
+ "claude": {
+  "five_hour": {
+   "used_pct": 1.0,
+   "resets_at": "2026-10-09T04:00:00Z"
+  },
+  "weekly": {
+   "used_pct": 2.0,
+   "resets_at": "2026-10-14T04:00:00Z"
+  },
+  "as_of": "2026-10-09T02:29:57Z"
+ },
+ "codex": {
+  "five_hour": {
+   "used_pct": 0.0,
+   "resets_at": "2026-10-09T04:52:21Z"
+  },
+  "weekly": {
+   "used_pct": 0.0,
+   "resets_at": "2026-10-15T23:52:21Z"
+  },
+  "as_of": "2026-10-09T02:12:42Z"
+ },
+ "gemini": {
+  "est_spend_usd": 0.0281,
+  "credit_usd": 20.0,
+  "est_pct": 0.14,
+  "model_calls": 4,
+  "is_estimate": true
+ },
+ "calls": {
+  "claude": {
+   "today": 6,
+   "d7": 6
+  },
+  "codex": {
+   "today": 3,
+   "d7": 3
+  },
+  "gemini": {
+   "today": 1,
+   "d7": 1
+  },
+  "failed": {
+   "today": 1,
+   "d7": 1
+  }
+ }
+}

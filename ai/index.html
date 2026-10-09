@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; img-src 'self' data:">
+<title>Usage</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; background: #0d1117; color: #e6edf3; font: 17px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+  main { max-width: 560px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 22px; margin: 4px 0 2px; }
+  .sub { color: #8b949e; font-size: 14px; margin-bottom: 12px; }
+  .warn { background: #5a1e02; color: #ffdfb6; border-radius: 10px; padding: 10px 12px; margin-bottom: 12px; display: none; }
+  .card { background: #161b22; border: 1px solid #30363d; border-radius: 14px; padding: 14px; margin-bottom: 14px; }
+  .card h2 { font-size: 18px; margin: 0 0 10px; }
+  .row { margin: 10px 0; }
+  .lbl { display: flex; justify-content: space-between; font-size: 15px; color: #c9d1d9; }
+  .pct { font-size: 26px; font-weight: 700; color: #fff; }
+  .bar { height: 14px; background: #21262d; border-radius: 7px; overflow: hidden; margin-top: 4px; }
+  .fill { height: 100%; width: 0; border-radius: 7px; background: #2ea043; transition: width .4s; }
+  .fill.mid { background: #d29922; } .fill.high { background: #f85149; }
+  .muted { color: #8b949e; font-size: 13px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td, th { padding: 6px 4px; text-align: left; } th { color: #8b949e; font-weight: 500; }
+  td.n, th.n { text-align: right; }
+  input, select, button { font: inherit; background: #0d1117; color: #e6edf3; border: 1px solid #30363d; border-radius: 8px; padding: 8px; }
+  input[type=number] { width: 90px; }
+  .inline { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Crew usage</h1>
+  <div class="sub" id="updated">Loading</div>
+  <div class="warn" id="stale">Data is more than 90 minutes old. The updater may be stopped.</div>
+
+  <div class="card"><h2>Claude plan</h2><div id="claude"></div></div>
+  <div class="card"><h2>ChatGPT plan (Codex)</h2><div id="codex"></div></div>
+  <div class="card"><h2>Gemini paid credit</h2><div id="gemini"></div>
+    <div class="muted">Estimate from our own token counts times published prices. Not a billing figure.</div></div>
+
+  <div class="card"><h2>Grok Bot</h2>
+    <div class="row">
+      <div class="lbl"><span>Weekly use (you enter it)</span><span class="pct" id="gbPct">?</span></div>
+      <div class="bar"><div class="fill" id="gbFill"></div></div>
+      <div class="muted" id="gbReset">Set your weekly reset below</div>
+    </div>
+    <div class="inline">
+      <input type="number" id="gbIn" min="0" max="100" step="1" placeholder="%" inputmode="numeric">
+      <button id="gbSave">Save percent</button>
+    </div>
+    <div class="inline">
+      <select id="gbDay">
+        <option value="">Reset day</option>
+        <option value="0">Sunday</option><option value="1">Monday</option><option value="2">Tuesday</option>
+        <option value="3">Wednesday</option><option value="4">Thursday</option><option value="5">Friday</option>
+        <option value="6">Saturday</option>
+      </select>
+      <input type="time" id="gbTime">
+      <button id="gbSaveReset">Save reset</button>
+    </div>
+    <div class="muted">Saved only on this phone. Nothing is sent anywhere.</div>
+  </div>
+
+  <div class="card"><h2>Calls through ai</h2><table id="calls"></table></div>
+</main>
+<script>
+(function () {
+  "use strict";
+  function $(id) { return document.getElementById(id); }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function dur(ms) {
+    var m = Math.max(0, Math.round(ms / 60000)), d = Math.floor(m / 1440), h = Math.floor((m % 1440) / 60), mm = m % 60;
+    if (d) return d + "d " + h + "h"; if (h) return h + "h " + mm + "m"; return mm + "m";
+  }
+  function setBar(fill, pct) {
+    var p = Math.max(0, Math.min(100, pct || 0));
+    fill.style.width = p + "%";
+    fill.className = "fill" + (p >= 80 ? " high" : p >= 50 ? " mid" : "");
+  }
+  function windowRow(label, w) {
+    var row = el("div", "row"), lbl = el("div", "lbl"), bar = el("div", "bar"), fill = el("div", "fill");
+    var has = w && typeof w.used_pct === "number";
+    lbl.appendChild(el("span", null, label));
+    lbl.appendChild(el("span", "pct", has ? Math.round(w.used_pct) + "%" : "n/a"));
+    bar.appendChild(fill); row.appendChild(lbl); row.appendChild(bar);
+    var note = !has ? "No reading yet" : w.resets_at ? "Resets in " + dur(Date.parse(w.resets_at) - Date.now()) : "Window has reset since the last reading";
+    row.appendChild(el("div", "muted", note));
+    setBar(fill, has ? w.used_pct : 0);
+    return row;
+  }
+  function asOf(t) { return el("div", "muted", t ? "Reading taken " + dur(Date.now() - Date.parse(t)) + " ago" : "No reading yet"); }
+
+  function render(d) {
+    var age = Date.now() - Date.parse(d.updated);
+    $("updated").textContent = "Updated " + dur(age) + " ago";
+    $("stale").style.display = age > 90 * 60000 ? "block" : "none";
+    [["claude", d.claude], ["codex", d.codex]].forEach(function (p) {
+      var box = $(p[0]); box.textContent = "";
+      box.appendChild(windowRow("5 hour window", p[1].five_hour));
+      box.appendChild(windowRow("Weekly window", p[1].weekly));
+      box.appendChild(asOf(p[1].as_of));
+    });
+    var g = d.gemini, gb = $("gemini"); gb.textContent = "";
+    var row = el("div", "row"), lbl = el("div", "lbl"), bar = el("div", "bar"), fill = el("div", "fill");
+    lbl.appendChild(el("span", null, "About $" + g.est_spend_usd.toFixed(2) + " of $" + g.credit_usd.toFixed(0)));
+    lbl.appendChild(el("span", "pct", g.est_pct.toFixed(1) + "%"));
+    bar.appendChild(fill); row.appendChild(lbl); row.appendChild(bar); gb.appendChild(row); setBar(fill, g.est_pct);
+    var t = $("calls"); t.textContent = "";
+    var hr = el("tr"); ["Engine", "Today", "7 days"].forEach(function (h, i) { hr.appendChild(el("th", i ? "n" : null, h)); }); t.appendChild(hr);
+    [["Claude", "claude"], ["Codex", "codex"], ["Gemini", "gemini"], ["All failed", "failed"]].forEach(function (r) {
+      var c = d.calls[r[1]] || { today: 0, d7: 0 }, tr = el("tr");
+      tr.appendChild(el("td", null, r[0])); tr.appendChild(el("td", "n", String(c.today))); tr.appendChild(el("td", "n", String(c.d7)));
+      t.appendChild(tr);
+    });
+  }
+
+  // Grok Bot: manual values kept only in this browser's localStorage
+  var LS = window.localStorage;
+  function nextReset() {
+    var day = LS.getItem("gb_reset_day"), tm = LS.getItem("gb_reset_time");
+    if (day === null || day === "" || !tm) return null;
+    var hm = tm.split(":"), n = new Date(), r = new Date(n);
+    r.setHours(+hm[0], +hm[1], 0, 0);
+    var add = (+day - n.getDay() + 7) % 7;
+    r.setDate(n.getDate() + add);
+    if (r <= n) r.setDate(r.getDate() + 7);
+    return r;
+  }
+  function renderGrok() {
+    var p = LS.getItem("gb_pct");
+    $("gbPct").textContent = p === null ? "?" : p + "%";
+    setBar($("gbFill"), p === null ? 0 : +p);
+    var r = nextReset();
+    $("gbReset").textContent = r ? "Resets in " + dur(r - Date.now()) : "Set your weekly reset below";
+    if (p !== null) $("gbIn").value = p;
+    var day = LS.getItem("gb_reset_day"); if (day !== null) $("gbDay").value = day;
+    var tm = LS.getItem("gb_reset_time"); if (tm) $("gbTime").value = tm;
+  }
+  $("gbSave").addEventListener("click", function () {
+    var v = parseInt($("gbIn").value, 10);
+    if (isNaN(v)) { LS.removeItem("gb_pct"); } else { LS.setItem("gb_pct", String(Math.max(0, Math.min(100, v)))); }
+    renderGrok();
+  });
+  $("gbSaveReset").addEventListener("click", function () {
+    LS.setItem("gb_reset_day", $("gbDay").value);
+    LS.setItem("gb_reset_time", $("gbTime").value);
+    renderGrok();
+  });
+
+  var last = null;
+  function load() {
+    fetch("usage.json", { cache: "no-store" }).then(function (r) { return r.json(); })
+      .then(function (d) { last = d; render(d); })
+      .catch(function () { $("updated").textContent = "Could not load usage data"; });
+  }
+  renderGrok(); load();
+  setInterval(load, 5 * 60000);
+  setInterval(function () { if (last) render(last); renderGrok(); }, 60000);
+})();
+</script>
+</body>
+</html>
