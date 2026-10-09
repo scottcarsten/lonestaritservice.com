@@ -72,6 +72,8 @@
     <div class="muted">Estimate from our own token counts times published prices. Not a billing figure.</div></div>
 
   <div class="card"><h2>Calls through ai</h2><table id="calls"></table></div>
+  <div class="card"><h2>Calls by bot</h2><table id="bots"></table>
+    <div class="muted">Week runs Monday to Sunday, Central time. Counts include direct engine calls.</div></div>
 </main>
 <script>
 (function () {
@@ -126,6 +128,24 @@
       tr.appendChild(el("td", null, r[0])); tr.appendChild(el("td", "n", String(c.today))); tr.appendChild(el("td", "n", String(c.d7)));
       t.appendChild(tr);
     });
+    renderBots(d.bots);
+  }
+
+  var BOTS = [["alfred", "Alfred"], ["catwoman", "Catwoman"], ["joker", "Joker"], ["riddler", "Riddler"],
+    ["penguin", "Penguin"], ["commissioner", "Commissioner"], ["lucius", "Lucius"], ["unknown", "Unknown"], ["other", "Other"]];
+  function renderBots(b) {
+    var t = $("bots"); t.textContent = "";
+    var y = (b && b.yesterday) || {}, w = (b && b.this_week) || {};
+    var hr = el("tr"); ["Bot", "Yesterday", "This week"].forEach(function (h, i) { hr.appendChild(el("th", i ? "n" : null, h)); }); t.appendChild(hr);
+    var any = false;
+    BOTS.forEach(function (r) {
+      var yy = typeof y[r[0]] === "number" ? y[r[0]] : 0, ww = typeof w[r[0]] === "number" ? w[r[0]] : 0;
+      if (!yy && !ww) return;
+      any = true;
+      var tr = el("tr"); tr.appendChild(el("td", null, r[1])); tr.appendChild(el("td", "n", String(yy))); tr.appendChild(el("td", "n", String(ww)));
+      t.appendChild(tr);
+    });
+    if (!any) { var tr = el("tr"), td = el("td", "muted", "No calls yet"); td.colSpan = 3; tr.appendChild(td); t.appendChild(tr); }
   }
 
   // Grok Bot: manual values kept only in this browser's localStorage
