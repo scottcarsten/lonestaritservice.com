@@ -28,6 +28,12 @@
   td.n, th.n { text-align: right; }
   input, select, button { font: inherit; background: #0d1117; color: #e6edf3; border: 1px solid #30363d; border-radius: 8px; padding: 8px; }
   input[type=number] { width: 90px; }
+  .hero { border: 2px solid #388bfd; padding: 18px; }
+  .hero h2 { font-size: 24px; }
+  .hero .pct { font-size: 56px; line-height: 1; }
+  .hero .bar { height: 28px; border-radius: 14px; margin-top: 10px; }
+  .hero .fill { border-radius: 14px; }
+  .hero #gbReset { font-size: 18px; color: #e6edf3; margin-top: 8px; }
   .inline { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 8px; }
 </style>
 </head>
@@ -37,14 +43,9 @@
   <div class="sub" id="updated">Loading</div>
   <div class="warn" id="stale">Data is more than 90 minutes old. The updater may be stopped.</div>
 
-  <div class="card"><h2>Claude plan</h2><div id="claude"></div></div>
-  <div class="card"><h2>ChatGPT plan (Codex)</h2><div id="codex"></div></div>
-  <div class="card"><h2>Gemini paid credit</h2><div id="gemini"></div>
-    <div class="muted">Estimate from our own token counts times published prices. Not a billing figure.</div></div>
-
-  <div class="card"><h2>Grok Bot</h2>
+  <div class="card hero"><h2>Grok Bot (Cursor)</h2>
     <div class="row">
-      <div class="lbl"><span>Weekly use (you enter it)</span><span class="pct" id="gbPct">?</span></div>
+      <div class="lbl"><span>Weekly use, entered by you</span><span class="pct" id="gbPct">?</span></div>
       <div class="bar"><div class="fill" id="gbFill"></div></div>
       <div class="muted" id="gbReset">Set your weekly reset below</div>
     </div>
@@ -62,8 +63,13 @@
       <input type="time" id="gbTime">
       <button id="gbSaveReset">Save reset</button>
     </div>
-    <div class="muted">Saved only on this phone. Nothing is sent anywhere.</div>
+    <div class="muted">Saved only on this phone. Nothing is sent anywhere. Cursor does not publish this number to the box, so enter it from your Cursor usage page.</div>
   </div>
+
+  <div class="card"><h2>Claude plan</h2><div id="claude"></div></div>
+  <div class="card"><h2>ChatGPT plan (Codex)</h2><div id="codex"></div></div>
+  <div class="card"><h2>Gemini paid credit</h2><div id="gemini"></div>
+    <div class="muted">Estimate from our own token counts times published prices. Not a billing figure.</div></div>
 
   <div class="card"><h2>Calls through ai</h2><table id="calls"></table></div>
 </main>
@@ -79,7 +85,7 @@
   function setBar(fill, pct) {
     var p = Math.max(0, Math.min(100, pct || 0));
     fill.style.width = p + "%";
-    fill.className = "fill" + (p >= 80 ? " high" : p >= 50 ? " mid" : "");
+    fill.className = "fill" + (p > 80 ? " high" : p >= 50 ? " mid" : "");  // green under 50, yellow 50 to 80, red above 80
   }
   function windowRow(label, w) {
     var row = el("div", "row"), lbl = el("div", "lbl"), bar = el("div", "bar"), fill = el("div", "fill");
