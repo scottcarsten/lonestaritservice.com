@@ -242,6 +242,9 @@
   #security-kit .kit-buy[aria-disabled="true"]{opacity:.6;cursor:not-allowed}
   #security-kit .kit-more{max-width:760px;margin-top:2rem;color:var(--text);line-height:1.7}
   #security-kit .kit-terms{font-size:.82rem;color:var(--muted);line-height:1.6;margin-top:1.5rem;max-width:760px}
+  #security-kit .kit-video{max-width:760px;margin:2rem 0 0}
+  #security-kit .kit-video video{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px;background:var(--navy2)}
+  #security-kit .kit-video .kit-buy{display:inline-block;width:auto;margin-top:1rem}
 
   /* FAQ */
   #faq { background: var(--white); }
@@ -538,7 +541,7 @@
         </div>
     </section>
 
-    <!-- DIY SECURITY KIT: hidden until the Square store is live. To launch: remove the hidden attribute, set real Square URLs on the .kit-buy links and drop aria-disabled, change the JSON-LD script type to application/ld+json and each availability from PreOrder to InStock, and add a nav link if wanted.
+    <!-- DIY SECURITY KIT: hidden until the Square store is live. To launch: remove the hidden attribute, set real Square URLs on the .kit-buy links and drop aria-disabled, set the real Square URL on the video Buy button (.kit-video-buy) and drop its aria-disabled, change the JSON-LD script type to application/ld+json and each availability from PreOrder to InStock, and add a nav link if wanted.
          Section meta description: Texas small office cyber security policy templates, checklists and a WISP template from Lone Star IT Service. Starter $49, Professional $99, Complete $199. -->
     <section id="security-kit" hidden aria-labelledby="security-kit-title">
       <div class="container">
@@ -546,6 +549,15 @@
         <h2 id="security-kit-title">Cyber Security Policy Templates for Texas Small Businesses</h2>
         <p class="kit-intro">You do not need a consultant to get your security policies on paper. If you have been searching for small business cyber security policy templates Texas offices can actually use, this is the kit I built. It is written in plain English for owners and office managers of offices with 5 to 50 people, such as property managers, CPA and tax preparers, dental and medical offices, law offices, and insurance agencies.</p>
         <p class="kit-intro">I'm Scott Carsten, CompTIA Security+ CE certified with 28 years in IT. Pick the tier that fits your office. Every tier includes an explainer video. Need a cyber insurance readiness checklist? It starts in the Professional tier. The WISP template and HIPAA security policy templates are in the Complete tier. If you would rather have me review your office myself, see the <a href="#readiness-check">Cyber Insurance Readiness Check</a>.</p>
+
+        <div class="kit-video">
+          <video controls playsinline preload="metadata" poster="assets/video/kit-funnel-30s-poster.jpg" width="1280" height="720" aria-label="30 second video overview of the Texas Small Office Security Policy and Checklist Kit">
+            <source src="assets/video/kit-funnel-30s-720p.mp4" type="video/mp4">
+            <track kind="captions" src="assets/video/kit-funnel-30s.en.vtt" srclang="en" label="English" default>
+            <p>Your browser does not play this video. You can <a href="assets/video/kit-funnel-30s-720p.mp4">download the kit overview video</a> instead.</p>
+          </video>
+          <a class="btn-primary kit-buy kit-video-buy" data-square-tier="professional" aria-disabled="true" role="button">Buy the Professional Kit</a>
+        </div>
 
         <div class="kit-grid">
           <div class="kit-card">
