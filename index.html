@@ -87,7 +87,7 @@
   /* HERO */
   #hero {
     background: var(--navy2);
-    padding-top: 9rem;
+    padding-top: calc(9rem + 29.75px); /* keeps the hero offset that a removed stray text line used to add */
     padding-bottom: 6rem;
     position: relative;
     overflow: hidden;
@@ -225,6 +225,27 @@
   .price-desc { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
   .price-note { font-size: 0.88rem; color: var(--muted); max-width: 580px; margin: 2.5rem auto 0; text-align: center; }
 
+  /* DIY SECURITY KIT */
+  #security-kit{background:var(--white)}
+  #security-kit .kit-intro{max-width:760px;color:var(--text);line-height:1.7;margin-top:1rem}
+  #security-kit .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+  #security-kit .kit-card{background:var(--white);border:1px solid var(--border);padding:2rem;border-radius:4px;display:flex;flex-direction:column;text-align:left}
+  #security-kit .kit-card.featured{border:2px solid var(--navy);position:relative}
+  #security-kit .kit-card h3{color:var(--navy);margin:0 0 .5rem}
+  #security-kit .kit-card .price-amount{margin-bottom:.5rem}
+  #security-kit .kit-card > p{color:var(--text);line-height:1.6;margin:0 0 1rem}
+  #security-kit .kit-list{list-style:none;margin:0 0 1rem;padding:0;font-size:.88rem;color:var(--muted);text-align:left;line-height:1.5}
+  #security-kit .kit-list li{position:relative;padding-left:1.4rem;margin-bottom:.45rem}
+  #security-kit .kit-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:700}
+  #security-kit .kit-format{font-size:.85rem;color:var(--muted);margin:0 0 .5rem}
+  #security-kit .kit-buy{display:block;width:100%;box-sizing:border-box;text-align:center;margin-top:auto}
+  #security-kit .kit-buy[aria-disabled="true"]{opacity:.6;cursor:not-allowed}
+  #security-kit .kit-more{max-width:760px;margin-top:2rem;color:var(--text);line-height:1.7}
+  #security-kit .kit-terms{font-size:.82rem;color:var(--muted);line-height:1.6;margin-top:1.5rem;max-width:760px}
+  #security-kit .kit-video{max-width:760px;margin:2rem 0 0}
+  #security-kit .kit-video video{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px;background:var(--navy2)}
+  #security-kit .kit-video .kit-buy{display:inline-block;width:auto;margin-top:1rem}
+
   /* FAQ */
   #faq { background: var(--white); }
   .faq-list { max-width: 780px; margin-top: 2rem; }
@@ -255,7 +276,7 @@
     .cred-grid { grid-template-columns: 1fr; }
     .btn-secondary { margin-left: 0; }
     section { padding: 3.5rem 1.25rem; }
-    #hero { padding-top: 7rem; padding-bottom: 4rem; }
+    #hero { padding-top: calc(7rem + 29.75px); padding-bottom: 4rem; }
   }
 
   /* DESIGN NOTE BOX */
@@ -285,9 +306,6 @@
             <li><a href="https://calendly.com/scottcarsten" style="color:var(--gold);">Let's Talk</a></li>
         </ul>
     </nav>
-            </div>
-        </div>
-    </div> -->
 
     <!-- HERO -->
     <section id="hero">
@@ -300,6 +318,7 @@
                 <div class="hero-ctas">
                     <a href="https://calendly.com/scottcarsten" class="btn-primary">Schedule Your Free Discovery Call</a>
                     <a href="#services" class="btn-secondary">See What I Do</a>
+                    <a href="#security-kit" class="btn-secondary">DIY Kit</a>
                 </div>
             </div>
         </div>
@@ -519,6 +538,141 @@
             <p class="price-note">Not sure what you need? That's what the free discovery call is for. Most clients come in not knowing exactly what they're looking for, and they leave with a clear picture of their situation and options.</p>
         </div>
     </section>
+
+    <!-- DIY SECURITY KIT. Section meta description: Texas small office cyber security policy templates, checklists and a WISP template from Lone Star IT Service. Starter $49, Professional $99, Complete $199. -->
+    <section id="security-kit" aria-labelledby="security-kit-title">
+      <div class="container">
+        <span id="kit" aria-hidden="true"></span>
+        <div class="section-label">DIY Security Kit</div>
+        <h2 id="security-kit-title">Cyber Security Policy Templates for Texas Small Businesses</h2>
+        <p class="kit-intro">You do not need a consultant to get your security policies on paper. If you have been searching for small business cyber security policy templates Texas offices can actually use, this is the kit I built. It is written in plain English for owners and office managers of offices with 5 to 50 people, such as property managers, CPA and tax preparers, dental and medical offices, law offices, and insurance agencies.</p>
+        <p class="kit-intro">I'm Scott Carsten, CompTIA Security+ CE certified with 28 years in IT. Pick the tier that fits your office. Every tier includes an explainer video. Need a cyber insurance readiness checklist? It starts in the Professional tier. The WISP template and HIPAA security policy templates are in the Complete tier. If you would rather have me review your office myself, see the <a href="#readiness-check">Cyber Insurance Readiness Check</a>.</p>
+
+        <div class="kit-video">
+          <video controls playsinline preload="metadata" poster="assets/video/kit-funnel-30s-poster.jpg" width="1280" height="720" aria-label="30 second video overview of the Texas Small Office Security Policy and Checklist Kit">
+            <source src="assets/video/kit-funnel-30s-720p.mp4" type="video/mp4">
+            <track kind="captions" src="assets/video/kit-funnel-30s.en.vtt" srclang="en" label="English" default>
+            <p>Your browser does not play this video. You can <a href="assets/video/kit-funnel-30s-720p.mp4">download the kit overview video</a> instead.</p>
+          </video>
+          <a href="#kit-tiers" class="btn-primary kit-buy kit-video-buy">See the kit options</a>
+        </div>
+
+        <div class="kit-grid" id="kit-tiers">
+          <div class="kit-card">
+            <h3>Starter Kit</h3>
+            <div class="price-amount">$49</div>
+            <p>Ten ready to customize security policies and four checklists, as editable Word templates in plain English.</p>
+            <ul class="kit-list">
+              <li>00 Start Here and 01 How to Use This Kit</li>
+              <li>P01 to P10: Acceptable Use, Password and MFA, Incident Response, Backup and Recovery, Vendor and Remote Access, Email and Phishing, Device and BYOD, Data Classification and Retention, Access Control and Onboarding and Offboarding, Remote Work</li>
+              <li>C01 New Hire and Termination Checklist</li>
+              <li>C02 Quarterly Security Review Checklist</li>
+              <li>C03 Incident First Hour Checklist</li>
+              <li>C04 Vendor Access Review Checklist</li>
+              <li>Explainer video</li>
+              <li>1 year of kit updates, with the download link resent when files are revised</li>
+            </ul>
+            <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
+            <a href="https://square.link/u/Z1oIIi3c" class="btn-primary kit-buy" data-square-tier="starter">Buy the Starter Kit</a>
+          </div>
+
+          <div class="kit-card featured">
+            <div class="price-badge">Best Value</div>
+            <h3>Professional Kit</h3>
+            <div class="price-amount">$99</div>
+            <p>Everything in Starter, plus a cyber insurance readiness checklist pack and a 30 day implementation guide.</p>
+            <ul class="kit-list">
+              <li>Everything in the Starter kit (front matter, P01 to P10, C01 to C04)</li>
+              <li>I01 Cyber Insurance Readiness Checklist</li>
+              <li>I02 Evidence Tracker</li>
+              <li>I03 Gap Action List</li>
+              <li>G01 30 Day Implementation Guide</li>
+              <li>G02 Policy Acknowledgment and Training Sign Off Sheet</li>
+              <li>Explainer video</li>
+              <li>1 year of kit updates, with the download link resent when files are revised</li>
+            </ul>
+            <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
+            <a href="https://square.link/u/XjaGGBFL" class="btn-primary kit-buy" data-square-tier="professional">Buy the Professional Kit</a>
+          </div>
+
+          <div class="kit-card">
+            <h3>Complete Kit</h3>
+            <div class="price-amount">$199</div>
+            <p>The full kit, plus HIPAA and WISP template add on packs and IRS references for tax preparers.</p>
+            <ul class="kit-list">
+              <li>Everything in the Professional kit</li>
+              <li>H01 HIPAA Risk Analysis Worksheet</li>
+              <li>H02 HIPAA Security Policies and Regulation Map</li>
+              <li>F01 Written Information Security Plan (WISP) Template</li>
+              <li>F02 Qualified Individual Designation Form</li>
+              <li>F03 IRS References for Tax Preparers</li>
+              <li>Explainer video</li>
+              <li>1 year of kit updates, with the download link resent when files are revised</li>
+            </ul>
+            <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
+            <a href="https://square.link/u/n64kuhDw" class="btn-primary kit-buy" data-square-tier="complete">Buy the Complete Kit</a>
+          </div>
+        </div>
+
+        <p class="kit-terms kit-refund">Digital download. All sales are final, no refunds. If your download never arrives, email <a href="mailto:scott@lonestaritservice.com">scott@lonestaritservice.com</a> and we will resend it after verifying your purchase.</p>
+
+        <p class="kit-more">The kit is self service, so you set the pace and keep the work in house. If you want a hands on review instead, my <a href="#readiness-check">Cyber Insurance Readiness Check</a> is a separate service: $995 for 5 to 15 seats, $1,495 for 16 to 30 seats, or $2,250 for 31 to 50 seats. It is not part of the kit.</p>
+
+        <p class="kit-terms">Templates only, not legal advice. Have your attorney, insurer, and compliance advisor review the documents before you adopt them. Texas sales tax is added at checkout where it applies. No support, calls, or consulting time are included.</p>
+      </div>
+    </section>
+    <script type="application/ld+json" id="security-kit-jsonld">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Texas Small Office Security Policy and Checklist Kit",
+      "description": "Digital download kit of cyber security policy templates and checklists for Texas small offices, from Lone Star IT Service in Granbury, Texas. Starter includes 10 security policies and 4 checklists as editable Word templates. Professional adds a cyber insurance readiness checklist pack, evidence tracker, gap action list, 30 day implementation guide and acknowledgment sheet. Complete adds a HIPAA risk analysis worksheet, HIPAA security policies and regulation map, WISP template, Qualified Individual designation form, and IRS references for tax preparers. Every tier includes 1 year of kit updates. Templates only, not legal advice. All sales final.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Lone Star IT Service"
+      },
+      "category": "Security Policy Templates",
+      "url": "https://lonestaritservice.com/#security-kit",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Starter",
+          "price": "49.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/Z1oIIi3c",
+          "seller": {
+            "@type": "Organization",
+            "name": "Lone Star IT Service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Professional",
+          "price": "99.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/XjaGGBFL",
+          "seller": {
+            "@type": "Organization",
+            "name": "Lone Star IT Service"
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Complete",
+          "price": "199.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/n64kuhDw",
+          "seller": {
+            "@type": "Organization",
+            "name": "Lone Star IT Service"
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- FAQ -->
     <section id="faq">
