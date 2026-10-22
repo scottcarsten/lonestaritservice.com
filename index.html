@@ -269,6 +269,13 @@
   .footer-nap { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 0.5rem; }
   .footer-legal { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0; }
 
+  /* NAV: keep one line on narrow desktops */
+  @media (min-width: 769px) and (max-width: 959px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1.1rem; }
+    .nav-links a { font-size: 0.85rem; letter-spacing: 0.02em; white-space: nowrap; }
+  }
+
   /* MOBILE */
   @media (max-width: 768px) {
     .nav-links { display: none; }
@@ -303,6 +310,7 @@
             <li><a href="#who">Who I Help</a></li>
             <li><a href="#pricing">Pricing</a></li>
             <li><a href="#faq">FAQ</a></li>
+            <li><a href="#security-kit">Kit</a></li>
             <li><a href="https://calendly.com/scottcarsten" style="color:var(--gold);">Let's Talk</a></li>
         </ul>
     </nav>
