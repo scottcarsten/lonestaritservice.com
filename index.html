@@ -225,7 +225,7 @@
   .price-desc { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
   .price-note { font-size: 0.88rem; color: var(--muted); max-width: 580px; margin: 2.5rem auto 0; text-align: center; }
 
-  /* DIY SECURITY KIT (section ships hidden until the Square store is live) */
+  /* DIY SECURITY KIT */
   #security-kit{background:var(--white)}
   #security-kit .kit-intro{max-width:760px;color:var(--text);line-height:1.7;margin-top:1rem}
   #security-kit .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
@@ -318,6 +318,7 @@
                 <div class="hero-ctas">
                     <a href="https://calendly.com/scottcarsten" class="btn-primary">Schedule Your Free Discovery Call</a>
                     <a href="#services" class="btn-secondary">See What I Do</a>
+                    <a href="#security-kit" class="btn-secondary">DIY Kit</a>
                 </div>
             </div>
         </div>
@@ -538,25 +539,25 @@
         </div>
     </section>
 
-    <!-- DIY SECURITY KIT: hidden until the Square store is live. To launch: remove the hidden attribute, set real Square URLs on the .kit-buy links and drop aria-disabled, set the real Square URL on the video Buy button (.kit-video-buy) and drop its aria-disabled, change the JSON-LD script type to application/ld+json and each availability from PreOrder to InStock, drop role=button on .kit-buy and .kit-video-buy when real hrefs go in, make sure both Buy the Professional Kit buttons use the same Square Professional URL, switch the kit video from preload=none to preload=metadata, and add a nav link if wanted.
-         Section meta description: Texas small office cyber security policy templates, checklists and a WISP template from Lone Star IT Service. Starter $49, Professional $99, Complete $199. -->
-    <section id="security-kit" hidden aria-labelledby="security-kit-title">
+    <!-- DIY SECURITY KIT. Section meta description: Texas small office cyber security policy templates, checklists and a WISP template from Lone Star IT Service. Starter $49, Professional $99, Complete $199. -->
+    <section id="security-kit" aria-labelledby="security-kit-title">
       <div class="container">
+        <span id="kit" aria-hidden="true"></span>
         <div class="section-label">DIY Security Kit</div>
         <h2 id="security-kit-title">Cyber Security Policy Templates for Texas Small Businesses</h2>
         <p class="kit-intro">You do not need a consultant to get your security policies on paper. If you have been searching for small business cyber security policy templates Texas offices can actually use, this is the kit I built. It is written in plain English for owners and office managers of offices with 5 to 50 people, such as property managers, CPA and tax preparers, dental and medical offices, law offices, and insurance agencies.</p>
         <p class="kit-intro">I'm Scott Carsten, CompTIA Security+ CE certified with 28 years in IT. Pick the tier that fits your office. Every tier includes an explainer video. Need a cyber insurance readiness checklist? It starts in the Professional tier. The WISP template and HIPAA security policy templates are in the Complete tier. If you would rather have me review your office myself, see the <a href="#readiness-check">Cyber Insurance Readiness Check</a>.</p>
 
         <div class="kit-video">
-          <video controls playsinline preload="none" poster="assets/video/kit-funnel-30s-poster.jpg" width="1280" height="720" aria-label="30 second video overview of the Texas Small Office Security Policy and Checklist Kit">
+          <video controls playsinline preload="metadata" poster="assets/video/kit-funnel-30s-poster.jpg" width="1280" height="720" aria-label="30 second video overview of the Texas Small Office Security Policy and Checklist Kit">
             <source src="assets/video/kit-funnel-30s-720p.mp4" type="video/mp4">
             <track kind="captions" src="assets/video/kit-funnel-30s.en.vtt" srclang="en" label="English" default>
             <p>Your browser does not play this video. You can <a href="assets/video/kit-funnel-30s-720p.mp4">download the kit overview video</a> instead.</p>
           </video>
-          <a class="btn-primary kit-buy kit-video-buy" data-square-tier="professional" aria-disabled="true" role="button">Buy the Professional Kit</a>
+          <a href="#kit-tiers" class="btn-primary kit-buy kit-video-buy">See the kit options</a>
         </div>
 
-        <div class="kit-grid">
+        <div class="kit-grid" id="kit-tiers">
           <div class="kit-card">
             <h3>Starter Kit</h3>
             <div class="price-amount">$49</div>
@@ -572,7 +573,7 @@
               <li>1 year of kit updates, with the download link resent when files are revised</li>
             </ul>
             <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
-            <a class="btn-primary kit-buy" data-square-tier="starter" aria-disabled="true" role="button">Buy the Starter Kit</a>
+            <a href="https://square.link/u/Z1oIIi3c" class="btn-primary kit-buy" data-square-tier="starter">Buy the Starter Kit</a>
           </div>
 
           <div class="kit-card featured">
@@ -591,7 +592,7 @@
               <li>1 year of kit updates, with the download link resent when files are revised</li>
             </ul>
             <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
-            <a class="btn-primary kit-buy" data-square-tier="professional" aria-disabled="true" role="button">Buy the Professional Kit</a>
+            <a href="https://square.link/u/XjaGGBFL" class="btn-primary kit-buy" data-square-tier="professional">Buy the Professional Kit</a>
           </div>
 
           <div class="kit-card">
@@ -609,7 +610,7 @@
               <li>1 year of kit updates, with the download link resent when files are revised</li>
             </ul>
             <p class="kit-format"><strong>Format:</strong> Editable Word (.docx).</p>
-            <a class="btn-primary kit-buy" data-square-tier="complete" aria-disabled="true" role="button">Buy the Complete Kit</a>
+            <a href="https://square.link/u/n64kuhDw" class="btn-primary kit-buy" data-square-tier="complete">Buy the Complete Kit</a>
           </div>
         </div>
 
@@ -617,10 +618,10 @@
 
         <p class="kit-more">The kit is self service, so you set the pace and keep the work in house. If you want a hands on review instead, my <a href="#readiness-check">Cyber Insurance Readiness Check</a> is a separate service: $995 for 5 to 15 seats, $1,495 for 16 to 30 seats, or $2,250 for 31 to 50 seats. It is not part of the kit.</p>
 
-        <p class="kit-terms">All sales are final. Templates only, not legal advice. Have your attorney, insurer, and compliance advisor review the documents before you adopt them. Texas sales tax is added at checkout where it applies. No support, calls, or consulting time are included.</p>
+        <p class="kit-terms">Templates only, not legal advice. Have your attorney, insurer, and compliance advisor review the documents before you adopt them. Texas sales tax is added at checkout where it applies. No support, calls, or consulting time are included.</p>
       </div>
     </section>
-    <script type="text/plain" id="security-kit-jsonld" data-launch-type="application/ld+json">
+    <script type="application/ld+json" id="security-kit-jsonld">
     {
       "@context": "https://schema.org",
       "@type": "Product",
@@ -638,8 +639,8 @@
           "name": "Starter",
           "price": "49.00",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder",
-          "url": "https://lonestaritservice.com/#security-kit",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/Z1oIIi3c",
           "seller": {
             "@type": "Organization",
             "name": "Lone Star IT Service"
@@ -650,8 +651,8 @@
           "name": "Professional",
           "price": "99.00",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder",
-          "url": "https://lonestaritservice.com/#security-kit",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/XjaGGBFL",
           "seller": {
             "@type": "Organization",
             "name": "Lone Star IT Service"
@@ -662,8 +663,8 @@
           "name": "Complete",
           "price": "199.00",
           "priceCurrency": "USD",
-          "availability": "https://schema.org/PreOrder",
-          "url": "https://lonestaritservice.com/#security-kit",
+          "availability": "https://schema.org/InStock",
+          "url": "https://square.link/u/n64kuhDw",
           "seller": {
             "@type": "Organization",
             "name": "Lone Star IT Service"
