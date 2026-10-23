@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hood County IT Security and Managed IT | Lone Star IT Service</title>
+<meta name="description" content="Remote managed IT and security for Granbury, Hood County and DFW businesses. Fixed price readiness checks, compliance help and readiness kits from Scott Carsten.">
+<link rel="canonical" href="https://lonestaritservice.com/hood-county-it-security/">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lone Star IT Service">
+<meta property="og:title" content="Hood County IT Security and Managed IT | Lone Star IT Service">
+<meta property="og:description" content="Remote managed IT and security for Granbury, Hood County and DFW businesses. Fixed price readiness checks, compliance help and readiness kits from Scott Carsten.">
+<meta property="og:url" content="https://lonestaritservice.com/hood-county-it-security/">
+<meta property="og:image" content="https://lonestaritservice.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lone Star IT Services logo: Scott Carsten with a laptop in front of a Texas star">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hood County IT Security and Managed IT | Lone Star IT Service">
+<meta name="twitter:description" content="Remote managed IT and security for Granbury, Hood County and DFW businesses. Fixed price readiness checks, compliance help and readiness kits from Scott Carsten.">
+<meta name="twitter:image" content="https://lonestaritservice.com/og-image.jpg">
+<meta name="twitter:image:alt" content="Lone Star IT Services logo: Scott Carsten with a laptop in front of a Texas star">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:   #1A3A5C;
+    --navy2:  #0F2540;
+    --teal:   #0D7377;
+    --gold:   #C87941;
+    --light:  #F4F6F9;
+    --white:  #FFFFFF;
+    --text:   #1A1A2E;
+    --muted:  #5A6476;
+    --border: #DEE2E6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text);
+    background: var(--white);
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(26,58,92,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-toggle { display: none; background: none; border: 0; padding: 0.5rem; margin-right: -0.5rem; cursor: pointer; color: var(--white); line-height: 0; }
+  .nav-toggle:focus-visible, .nav-links a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+  .nav-toggle svg { width: 26px; height: 26px; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .nav-toggle .icon-close { display: none; }
+  .nav-toggle[aria-expanded="true"] .icon-open { display: none; }
+  .nav-toggle[aria-expanded="true"] .icon-close { display: block; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; line-height: 1.15; color: var(--white); }
+  h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; line-height: 1.2; color: var(--navy); margin-bottom: 1rem; }
+  h3 { font-size: 1.15rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  p { margin-bottom: 1rem; color: var(--muted); }
+
+  .btn-primary {
+    display: inline-block; padding: 0.9rem 2.2rem;
+    background: var(--gold); color: var(--white);
+    font-weight: 700; font-size: 0.95rem; letter-spacing: 0.02em;
+    text-decoration: none; border-radius: 3px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-primary:hover { background: #a8612f; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-block; padding: 0.9rem 2rem;
+    background: transparent; color: rgba(255,255,255,0.85);
+    font-weight: 600; font-size: 0.95rem;
+    text-decoration: none; border: 1.5px solid rgba(255,255,255,0.4);
+    border-radius: 3px; margin-left: 1rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--white); color: var(--white); }
+
+  /* HERO */
+  #hero {
+    background: var(--navy2);
+    padding-top: calc(9rem + 29.75px); /* keeps the hero offset that a removed stray text line used to add */
+    padding-bottom: 6rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0; bottom: 0;
+    width: 45%;
+    background: linear-gradient(135deg, rgba(13,115,119,0.15) 0%, rgba(200,121,65,0.08) 100%);
+  }
+  .hero-content { position: relative; max-width: 680px; }
+  .hero-tag {
+    display: inline-block; padding: 0.35rem 1rem;
+    background: rgba(200,121,65,0.2); border: 1px solid rgba(200,121,65,0.4);
+    color: var(--gold); font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border-radius: 2px; margin-bottom: 1.5rem;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.75);
+    margin: 1.5rem 0 2.2rem;
+    line-height: 1.65;
+  }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-top: 2.5rem; }
+
+  /* TRUST BAR */
+  #trust {
+    background: var(--navy);
+    padding: 2rem;
+    border-top: 3px solid var(--gold);
+    border-bottom: 3px solid rgba(255,255,255,0.1);
+  }
+  .trust-grid {
+    display: flex; flex-wrap: wrap; gap: 1rem 2.5rem;
+    justify-content: center; align-items: center;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: rgba(255,255,255,0.8); font-size: 0.88rem; font-weight: 600;
+  }
+  .trust-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+
+  /* PROBLEM */
+  #problem { background: var(--navy2); }
+  #problem h2 { color: var(--white); }
+  #problem .intro { color: rgba(255,255,255,0.65); font-size: 1.1rem; margin-bottom: 2.5rem; }
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem; margin-top: 2rem;
+  }
+  .pain-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 3px solid var(--gold);
+    padding: 1.5rem; border-radius: 4px;
+  }
+  .pain-card p { color: rgba(255,255,255,0.7); margin: 0; font-size: 0.95rem; }
+  .hook { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--gold); margin-top: 2.5rem; font-style: italic; }
+
+  /* SERVICES */
+  #services { background: var(--white); }
+  .services-intro { color: var(--muted); font-size: 1.05rem; max-width: 600px; margin-bottom: 3rem; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(310px, 100%), 1fr));
+    gap: 2rem;
+  }
+  .service-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-top: 3px solid var(--navy); padding: 2rem;
+    border-radius: 4px; transition: box-shadow 0.2s, border-top-color 0.2s;
+  }
+  .service-card:hover { box-shadow: 0 6px 24px rgba(26,58,92,0.1); border-top-color: var(--gold); }
+  .service-num { font-size: 2rem; font-weight: 700; color: rgba(26,58,92,0.1); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; }
+  .service-card p { font-size: 0.92rem; margin: 0; }
+
+  /* ABOUT */
+  #about { background: var(--light); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--muted); }
+  .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+  .cred-item {
+    display: flex; align-items: flex-start; gap: 0.5rem;
+    font-size: 0.88rem; color: var(--muted); padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .cred-icon { color: var(--gold); font-weight: 700; flex-shrink: 0; }
+
+  /* WHO */
+  #who { background: var(--white); }
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .who-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 1.75rem; border-radius: 4px;
+  }
+  .who-card h3 { color: var(--navy); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; margin-bottom: 0.75rem; }
+  .who-card p { font-size: 0.9rem; margin: 0; }
+
+  /* PROCESS */
+  #process { background: var(--navy2); }
+  #process h2 { color: var(--white); }
+  #process .intro { color: rgba(255,255,255,0.65); margin-bottom: 3rem; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+  .step { text-align: center; }
+  .step-num {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--gold); color: var(--white);
+    font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+  }
+  .step h3 { color: var(--white); font-size: 1rem; margin-bottom: 0.5rem; }
+  .step p { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0; }
+
+  /* PRICING */
+  #pricing { background: var(--light); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .price-card {
+    background: var(--white); border: 1px solid var(--border);
+    padding: 2rem; border-radius: 4px; text-align: center;
+  }
+  .price-card.featured { border: 2px solid var(--navy); position: relative; }
+  .price-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--navy); color: var(--white);
+    font-size: 0.75rem; font-weight: 600; padding: 0.25rem 1rem;
+    border-radius: 20px; white-space: nowrap;
+  }
+  .price-name { font-size: 0.85rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 1.9rem; font-weight: 700; color: var(--navy); }
+  .price-period { font-size: 0.85rem; color: var(--muted); }
+  .price-desc { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
+  .price-note { font-size: 0.88rem; color: var(--muted); max-width: 580px; margin: 2.5rem auto 0; text-align: center; }
+
+  /* DIY SECURITY KIT */
+  #security-kit{background:var(--white)}
+  #security-kit .kit-intro{max-width:760px;color:var(--text);line-height:1.7;margin-top:1rem}
+  #security-kit .kit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:2rem}
+  #security-kit .kit-card{background:var(--white);border:1px solid var(--border);padding:2rem;border-radius:4px;display:flex;flex-direction:column;text-align:left}
+  #security-kit .kit-card.featured{border:2px solid var(--navy);position:relative}
+  #security-kit .kit-card h3{color:var(--navy);margin:0 0 .5rem}
+  #security-kit .kit-card .price-amount{margin-bottom:.5rem}
+  #security-kit .kit-card > p{color:var(--text);line-height:1.6;margin:0 0 1rem}
+  #security-kit .kit-list{list-style:none;margin:0 0 1rem;padding:0;font-size:.88rem;color:var(--muted);text-align:left;line-height:1.5}
+  #security-kit .kit-list li{position:relative;padding-left:1.4rem;margin-bottom:.45rem}
+  #security-kit .kit-list li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:700}
+  #security-kit .kit-format{font-size:.85rem;color:var(--muted);margin:0 0 .5rem}
+  #security-kit .kit-buy{display:block;width:100%;box-sizing:border-box;text-align:center;margin-top:auto}
+  #security-kit .kit-buy[aria-disabled="true"]{opacity:.6;cursor:not-allowed}
+  #security-kit .kit-more{max-width:760px;margin-top:2rem;color:var(--text);line-height:1.7}
+  #security-kit .kit-terms{font-size:.82rem;color:var(--muted);line-height:1.6;margin-top:1.5rem;max-width:760px}
+  #security-kit .kit-video{max-width:760px;margin:2rem 0 0}
+  #security-kit .kit-video video{display:block;width:100%;max-width:100%;height:auto;border:1px solid var(--border);border-radius:4px;background:var(--navy2)}
+  #security-kit .kit-video .kit-buy{display:inline-block;width:auto;margin-top:1rem}
+
+  /* FAQ */
+  #faq { background: var(--white); }
+  .faq-list { max-width: 780px; margin-top: 2rem; }
+  .faq-item { border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+  .faq-q { font-size: 1.05rem; font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+  .faq-a { color: var(--muted); margin: 0; font-size: 0.95rem; }
+
+  /* CTA */
+  #cta { background: var(--navy); text-align: center; padding: 6rem 2rem; }
+  #cta h2 { color: var(--white); margin-bottom: 1rem; }
+  #cta p { color: rgba(255,255,255,0.7); max-width: 580px; margin: 0 auto 2rem; font-size: 1.05rem; }
+  .cta-sub { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-top: 1.5rem !important; }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy2);
+    border-top: 2px solid var(--gold);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+  .footer-nap { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 0.5rem; }
+  .footer-legal { color: rgba(255,255,255,0.35); font-size: 0.8rem; margin: 0; }
+
+  /* NAV: keep one line on narrow desktops */
+  @media (min-width: 769px) and (max-width: 959px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links { gap: 1.1rem; }
+    .nav-links a { font-size: 0.85rem; letter-spacing: 0.02em; white-space: nowrap; }
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem; }
+    .nav-links a { display: block; padding: 0.95rem 1.25rem; font-size: 0.95rem; }
+    .js .nav-toggle { display: block; }
+    .js .nav-links {
+      position: fixed; top: 64px; left: 0; right: 0;
+      flex-direction: column; gap: 0;
+      background: var(--navy);
+      border-bottom: 2px solid var(--gold);
+      max-height: calc(100vh - 64px); overflow-y: auto;
+      max-height: calc(100dvh - 64px);
+      opacity: 0; visibility: hidden; transform: translateY(-8px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0s linear 0.2s;
+    }
+    .js .nav-links li + li { border-top: 1px solid rgba(255,255,255,0.1); }
+    .js .nav-links.open { opacity: 1; visibility: visible; transform: none; transition: opacity 0.2s, transform 0.2s; }
+    /* no JS: links stay in normal flow, wrapped, no toggle */
+    html:not(.js) nav { position: relative; height: auto; flex-direction: column; align-items: flex-start; padding: 0.75rem 1.25rem; }
+    html:not(.js) .nav-links { flex-wrap: wrap; gap: 0 1rem; }
+    html:not(.js) .nav-links a { padding: 0.5rem 0; font-size: 0.85rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .cred-grid { grid-template-columns: 1fr; }
+    .btn-secondary { margin-left: 0; }
+    section { padding: 3.5rem 1.25rem; }
+    #hero { padding-top: calc(7rem + 29.75px); padding-bottom: 4rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .js .nav-links, .js .nav-links.open { transition: none; }
+  }
+
+  /* DESIGN NOTE BOX */
+  .design-note {
+    background: #FFF8E8;
+    border: 1px solid #f0c060;
+    border-left: 4px solid var(--gold);
+    padding: 1rem 1.25rem;
+    font-size: 0.82rem;
+    color: #7a5c1a;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+  }
+</style>
+<style>
+  /* LANDING PAGES */
+  main section ul, main section ol { margin: 0 0 1rem 1.4rem; color: var(--muted); }
+  main section li { margin-bottom: 0.5rem; }
+  main section a { color: var(--teal); }
+  main section.alt { background: var(--light); }
+  main .btn-primary, main .btn-primary:hover { color: var(--white); }
+  .page-table { border-collapse: collapse; width: 100%; max-width: 480px; margin: 0 0 1.5rem; }
+  .page-table th, .page-table td { text-align: left; padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: var(--text); }
+  .page-table th { color: var(--navy); font-weight: 600; }
+  #page-cta a:not(.btn-primary) { color: var(--gold); }
+  #hero .hero-content { max-width: 760px; }
+  #security-kit .kit-video-note { max-width: 760px; }
+  @media (max-width: 768px) { #security-kit .kit-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <a class="nav-brand" href="/">Lone Star IT Service</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+            <svg class="icon-open" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            <svg class="icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg>
+        </button>
+        <ul class="nav-links" id="nav-menu">
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#about">About</a></li>
+            <li><a href="/#who">Who I Help</a></li>
+            <li><a href="/#pricing">Pricing</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#security-kit">Kit</a></li>
+            <li><a href="https://calendly.com/scottcarsten" style="color:var(--gold);">Let's Talk</a></li>
+        </ul>
+    </nav>
+    <script>
+    (function () {
+        var root = document.documentElement, nav = document.querySelector('nav'),
+            btn = nav.querySelector('.nav-toggle'), menu = document.getElementById('nav-menu'),
+            mq = window.matchMedia('(max-width: 768px)');
+        root.classList.add('js');
+        function set(open, refocus) {
+            menu.classList.toggle('open', open);
+            btn.setAttribute('aria-expanded', open);
+            btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            if (refocus) btn.focus();
+        }
+        btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+        menu.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+        document.addEventListener('click', function (e) { if (!nav.contains(e.target)) set(false); });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') set(false, true);
+        });
+        (mq.addEventListener ? mq.addEventListener('change', function (e) { if (!e.matches) set(false); })
+                             : mq.addListener(function (e) { if (!e.matches) set(false); }));
+    })();
+    </script>
+
+
+    <main>
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hood County IT Security and Managed IT, Delivered Remotely</h1>
+                <p class="hero-sub">Lone Star IT Service is a remote managed service provider run by Scott Carsten in Texas. We support businesses in Granbury, Hood County and across DFW, and we work with clients anywhere in the US.</p>
+                <p style="color:rgba(255,255,255,0.6); font-size:0.95rem; margin-bottom:0;">Hood County owners tell us the same things other buyers do: they want a person who answers, a price that does not change, and security that holds up when an insurer or auditor asks questions.</p>
+                <div class="hero-ctas">
+                    <a href="tel:+14692485463" class="btn-primary">Call 469-248-5463</a>
+                    <a href="#security-kit" class="btn-secondary">DIY Kit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>What we do</h2>
+            <ul>
+            <li>Remote managed IT: help desk, device and Microsoft 365 or Google management, backups, patching.</li>
+            <li>Security: MFA, endpoint protection, email filtering, staff training, incident planning.</li>
+            <li>Cyber insurance readiness: see our <a href="/cyber-insurance-readiness/">Cyber Insurance Readiness Check</a>.</li>
+            <li>HIPAA: see our <a href="/hipaa-risk-assessment/">HIPAA risk assessment</a>.</li>
+            <li>Pre audit readiness checks before real auditors arrive and for SOC findings.</li>
+            <li>Compliance help and Word format security readiness kits at $49, $99 and $199.</li>
+            </ul>
+        </div>
+    </section>
+    <section class="alt">
+        <div class="container">
+            <h2>How we avoid the common MSP complaints</h2>
+            <p>Reviews of managed providers keep returning to slow responses, surprise fees, and vague promises. Here is how we handle each.</p>
+            <ul>
+            <li>Response: we state response targets in writing before you sign.</li>
+            <li>Billing: you get an itemized proposal that names what is included and what would cost extra.</li>
+            <li>Scope: we describe in plain terms what we cover, instead of promising unlimited everything.</li>
+            </ul>
+            <p>Ask us for any of this in writing. You should ask every provider you are considering.</p>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <h2>How it works with a remote provider</h2>
+            <ol>
+            <li>Call 469-248-5463 for a short conversation about your size, tools and worries.</li>
+            <li>We review your setup remotely and send a written list of risks and a fixed quote.</li>
+            <li>We fix the urgent items first, then set up ongoing support if you want it.</li>
+            </ol>
+            <p>Most day to day IT and security work does not require a technician in your building. When something truly needs hands on the equipment, we will tell you plainly and plan it with you.</p>
+        </div>
+    </section>
+    <section class="alt">
+        <div class="container">
+            <h2>Fixed price starting point</h2>
+            <p>For insurance driven needs, the Cyber Insurance Readiness Check is $995 for 5 to 15 seats, $1,495 for 16 to 30, and $2,250 for 31 to 50. Ongoing managed IT is quoted after we see your environment.</p>
+        </div>
+    </section>
+    <section id="faq">
+        <div class="container">
+            <div class="section-label">FAQ</div>
+            <h2>Frequently asked questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-q">Do you serve businesses in Granbury and Hood County?</h3>
+                    <p class="faq-a">Yes. We are a Texas based remote managed provider serving Granbury, Hood County and DFW, plus clients elsewhere in the US. Nearly all support, security reviews and compliance work happen remotely, which keeps costs predictable. Call 469-248-5463 to talk through your setup.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">Can a remote IT company really support a local business?</h3>
+                    <p class="faq-a">For most small business needs, yes. Help desk, Microsoft 365, backups, endpoint security, patching and compliance reviews can all be done remotely, often faster than scheduling a visit. For hardware that needs hands on work, we plan that with you or coordinate a local technician.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">What should I ask an IT provider before I sign?</h3>
+                    <p class="faq-a">Ask for written response times, an itemized proposal showing what triggers extra charges, how they report on tickets, and what security tools are included. Ask for average response and resolution times from the past 6 to 12 months. A provider who does not track these is a warning sign.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">Can you help with cyber insurance or an audit?</h3>
+                    <p class="faq-a">Yes. We run a Cyber Insurance Readiness Check before your application or renewal, and pre audit readiness checks before real auditors arrive or after SOC findings. We help you fix gaps and organize evidence. We cannot guarantee coverage, premiums or audit outcomes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">How much does IT security cost for a small business?</h3>
+                    <p class="faq-a">It depends on seats, tools and the level of support. Our fixed price Cyber Insurance Readiness Check starts at $995 for 5 to 15 seats. Readiness kits start at $49. Ongoing managed IT and security is quoted after a short review, with the price in writing up front.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-q">Do you only work with very small companies?</h3>
+                    <p class="faq-a">No. We support businesses from small offices to enterprise teams, remotely. Smaller firms often start with a readiness check or kit, while larger ones may need compliance support or pre audit work. Call 469-248-5463 and describe your size and goals, and we will suggest a fit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="security-kit" aria-labelledby="security-kit-title">
+      <div class="container">
+        <div class="section-label">DIY Security Kit</div>
+        <h2 id="security-kit-title">Start Today With a Security Readiness Kit</h2>
+        <p class="kit-intro">Prefer to work at your own pace? Our editable Word templates put your policies and checklists on paper in plain English. Every tier includes an explainer video.</p>
+
+        <div class="kit-video">
+          <video controls playsinline preload="metadata" poster="/assets/video/kit-funnel-30s-poster.jpg" width="1280" height="720" aria-label="30 second video overview of the Texas Small Office Security Policy and Checklist Kit">
+            <source src="/assets/video/kit-funnel-30s-720p.mp4" type="video/mp4">
+            <track kind="captions" src="/assets/video/kit-funnel-30s.en.vtt" srclang="en" label="English" default>
+            <p>Your browser does not play this video. You can <a href="/assets/video/kit-funnel-30s-720p.mp4">download the kit overview video</a> instead.</p>
+          </video>
+        </div>
+
+        <div class="kit-grid" id="kit-tiers">
+          <div class="kit-card">
+            <h3>Starter Kit</h3>
+            <div class="price-amount">$49</div>
+            <p>Ten ready to customize security policies and four checklists, as editable Word templates in plain English.</p>
+            <a href="https://square.link/u/Z1oIIi3c" class="btn-primary kit-buy" data-square-tier="starter">Buy the Starter Kit</a>
+          </div>
+          <div class="kit-card featured">
+            <div class="price-badge">Best Value</div>
+            <h3>Professional Kit</h3>
+            <div class="price-amount">$99</div>
+            <p>Everything in Starter, plus a cyber insurance readiness checklist pack and a 30 day implementation guide.</p>
+            <a href="https://square.link/u/XjaGGBFL" class="btn-primary kit-buy" data-square-tier="professional">Buy the Professional Kit</a>
+          </div>
+          <div class="kit-card">
+            <h3>Complete Kit</h3>
+            <div class="price-amount">$199</div>
+            <p>The full kit, plus HIPAA and WISP template add on packs and IRS references for tax preparers.</p>
+            <a href="https://square.link/u/n64kuhDw" class="btn-primary kit-buy" data-square-tier="complete">Buy the Complete Kit</a>
+          </div>
+        </div>
+
+        <p class="kit-more">See every document in each tier in the <a href="/#security-kit">full Security Kit details</a>.</p>
+        <p class="kit-terms">Templates only, not legal advice. Digital download. All sales are final, no refunds.</p>
+      </div>
+    </section>
+
+    <section id="page-cta" style="background:var(--navy); text-align:center;">
+        <div class="container">
+            <h2 style="color:var(--white);">Talk to Scott</h2>
+            <p style="color:rgba(255,255,255,0.7); max-width:580px; margin:0 auto 0;">Call <a href="tel:+14692485463">469-248-5463</a>. Remote service for Hood County, DFW and anywhere in the US.</p>
+        </div>
+    </section>
+    </main>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed IT and Security for Hood County Businesses",
+  "description": "Remote managed IT, cybersecurity, pre audit readiness and compliance help for Granbury and Hood County small businesses, with DFW coverage.",
+  "url": "https://lonestaritservice.com/hood-county-it-security/",
+  "provider": {
+    "@type": "ProfessionalService",
+    "name": "Lone Star IT Service",
+    "url": "https://lonestaritservice.com/",
+    "telephone": "+1-469-248-5463"
+  },
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Hood County, Texas"
+    },
+    {
+      "@type": "Place",
+      "name": "Dallas Fort Worth"
+    },
+    {
+      "@type": "Country",
+      "name": "United States"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you serve businesses in Granbury and Hood County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We are a Texas based remote managed provider serving Granbury, Hood County and DFW, plus clients elsewhere in the US. Nearly all support, security reviews and compliance work happen remotely, which keeps costs predictable. Call 469-248-5463 to talk through your setup."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a remote IT company really support a local business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most small business needs, yes. Help desk, Microsoft 365, backups, endpoint security, patching and compliance reviews can all be done remotely, often faster than scheduling a visit. For hardware that needs hands on work, we plan that with you or coordinate a local technician."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I ask an IT provider before I sign?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ask for written response times, an itemized proposal showing what triggers extra charges, how they report on tickets, and what security tools are included. Ask for average response and resolution times from the past 6 to 12 months. A provider who does not track these is a warning sign."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you help with cyber insurance or an audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We run a Cyber Insurance Readiness Check before your application or renewal, and pre audit readiness checks before real auditors arrive or after SOC findings. We help you fix gaps and organize evidence. We cannot guarantee coverage, premiums or audit outcomes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does IT security cost for a small business?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on seats, tools and the level of support. Our fixed price Cyber Insurance Readiness Check starts at $995 for 5 to 15 seats. Readiness kits start at $49. Ongoing managed IT and security is quoted after a short review, with the price in writing up front."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you only work with very small companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. We support businesses from small offices to enterprise teams, remotely. Smaller firms often start with a readiness check or kit, while larger ones may need compliance support or pre audit work. Call 469-248-5463 and describe your size and goals, and we will suggest a fit."
+      }
+    }
+  ]
+}
+</script>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p class="footer-nap"><strong>Scott Carsten</strong> | Fractional CISO &amp; IT Security Consultant | Granbury, TX</p>
+            <p class="footer-nap"><a href="tel:+14692485463" style="color:rgba(255,255,255,0.6);">469.248.5463</a> | <a href="mailto:scott@lonestaritservice.com" style="color:rgba(255,255,255,0.6);">scott@lonestaritservice.com</a></p>
+            <p class="footer-nap"><a href="/cyber-insurance-readiness/" style="color:rgba(255,255,255,0.6);">Cyber Insurance Readiness</a> | <a href="/hipaa-risk-assessment/" style="color:rgba(255,255,255,0.6);">HIPAA Risk Assessment</a> | <a href="/hood-county-it-security/" style="color:rgba(255,255,255,0.6);">Hood County IT Security</a></p>
+            <p class="footer-legal">&copy; 2026 Lone Star IT Service. All rights reserved. Serving businesses throughout the DFW metroplex and across Texas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
