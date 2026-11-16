@@ -1,6 +1,6 @@
 # lonestaritservice.com
 
-Static GitHub Pages site for Lone Star IT Service: database rescue and PowerShell script shop. Plain HTML, CSS and a little vanilla JS. No trackers, no third party requests.
+Static GitHub Pages site for Lone Star IT Services: database rescue and PowerShell script shop. Plain HTML, CSS and a little vanilla JS. No trackers, no third party requests.
 
 - Pages: home, data-rescue, script-shop, about, contact, 404, and six search-term landing pages.
 - Contact is phone and mailto only. No form backend.
