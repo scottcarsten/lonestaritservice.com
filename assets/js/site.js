@@ -3,6 +3,20 @@
   var root = document.documentElement;
   root.className += ' js';
 
+  // GA4 events. One delegated listener. Safe if gtag is blocked or missing.
+  document.addEventListener('click', function (e) {
+    if (typeof gtag !== 'function' || !e.target || !e.target.closest) { return; }
+    var a = e.target.closest('a[href]');
+    if (!a) { return; }
+    var href = (a.getAttribute('href') || '').toLowerCase();
+    var params = { page_location: window.location.href, brand: 'lits' };
+    if (href.indexOf('tel:') === 0) { gtag('event', 'phone_click', params); }
+    if (href.indexOf('mailto:') === 0) { gtag('event', 'email_click', params); }
+    if (href.indexOf('#sample') !== -1 || (href.indexOf('mailto:') === 0 && a.closest('#sample'))) {
+      gtag('event', 'sample_request_click', params);
+    }
+  });
+
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.querySelector('.nav-toggle');
     var nav = document.getElementById('site-nav');
